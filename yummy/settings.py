@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Local apps
-    # 'accounts.apps.AccountsConfig',
+    'account.apps.AccountConfig',
 
     # built-in apps
     'django.contrib.admin',
@@ -130,4 +130,4 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# USER_AUTH_MODEL = 'accounts.User'
+AUTH_USER_MODEL  = 'account.User'
