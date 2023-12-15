@@ -21,5 +21,6 @@ from . import views # new
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'), # home page url
-    path('account/', include('account.urls')) # account management urls
+    path('account/', include('account.urls')), # account management urls
+    path('app-content/', include('app_content.urls')), # app_content urls
 ]
