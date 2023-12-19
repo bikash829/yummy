@@ -1,0 +1,619 @@
+# section content 
+- model : section_content.Slider
+  pk : 1
+  fields :
+    slider_image : static/img/section_image/section1.jpg
+    slider_title : Welcome To Our Restaurant
+    slider_description : Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat. 
+    # video_active : False
+    section : 1
+- model : section_content.About
+  pk : 2
+  fields :
+    image : static/img/section_image/section2.jpg
+    about_description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    about_description_end : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    section : 2
+- model : section_content.AboutList     # About list 1
+  pk : 3
+  fields :
+    list_text : Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    about : 2
+    
+- model : section_content.AboutList     # About list 2
+  pk : 4
+  fields :
+    list_text : Duis aute irure dolor in reprehenderit in voluptate velit
+    about : 2
+- model : section_content.AboutList     # About list 3
+  pk : 5
+  fields :
+    list_text : Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.
+    about : 2
+- model : section_content.WhyUs     # why choose us 1
+  pk : 6
+  fields :
+    icon : bi bi-clipboard-data
+    title : Corporis voluptates officia eiusmod
+    description : Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip
+    section : 9
+- model : section_content.WhyUs     # why choose us 2
+  pk : 7
+  fields :
+    icon : bi bi-gem
+    title : Ullamco laboris ladore pan
+    description : Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+    section : 9
+- model : section_content.WhyUs     # why choose us 3
+  pk : 8
+  fields :
+    icon : bi bi-clipboard-data
+    title : Labore consequatur incidid dolore
+    description : Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere
+    section : 9
+- model : section_content.Statistics     # Statistics 1
+  pk : 9
+  fields :
+    number : 232
+    title : Clients
+    section : 10
+- model : section_content.Statistics     # Statistics 2
+  pk : 10
+  fields :
+    number : 521
+    title : Projects
+    section : 10
+- model : section_content.Statistics     # Statistics 3
+  pk : 11
+  fields :
+    number : 1463
+    title : Hours Of Support
+    section : 10
+- model : section_content.Statistics     # Statistics 4
+  pk : 12
+  fields :
+    number : 32
+    title : Workers
+    section : 10
+# ============================================= Menu section content
+## Menu Category
+- model : section_content.MenuCategory
+  pk : 13
+  fields :
+    menu_category_name : Starters
+    section : 3
+- model : section_content.MenuCategory
+  pk : 14
+  fields :
+    menu_category_name : Breakfast
+    section : 3
+- model : section_content.MenuCategory
+  pk : 15
+  fields :
+    menu_category_name : Lunch
+    section : 3
+- model : section_content.MenuCategory
+  pk : 16
+  fields :
+    menu_category_name : Dinner
+    section : 3
+## Menu Item
+- model : section_content.MenuItem
+  pk : 17
+  fields :
+    menu_item_name : Magnam Tiste
+    menu_item_price : 5.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-1.png
+    menu_item_description : Experience exquisite flavors with Magnam Tiste, a menu offering culinary delights and indulgent dishes curated for discerning tastes and preferences.
+    menu_category : 13
+- model : section_content.MenuItem
+  pk : 18
+  fields :
+    menu_item_name : Aut Luia
+    menu_item_price : 14.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-2.png
+    menu_item_description : Aut Luia—a mysterious term, context needed. Share details for a precise and meaningful response.
+    menu_category : 13
+- model : section_content.MenuItem
+  pk : 19
+  fields :
+    menu_item_name : Est Eligendi
+    menu_item_price : 8.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-3.png
+    menu_item_description : Est Eligendi—a Latin phrase meaning 'there is a choice.' Context is key for a precise interpretation.
+    menu_category : 13
+- model : section_content.MenuItem
+  pk : 20
+  fields :
+    menu_item_name : Eos Luibusdam
+    menu_item_price : 12.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-4.png
+    menu_item_description : Eos Luibusdam—Latin for 'with pleasures.' Depending on context, it may refer to enjoyable experiences or choices.
+    menu_category : 13
+- model : section_content.MenuItem
+  pk : 21
+  fields :
+    menu_item_name : Eos Luibusdam
+    menu_item_price : 12.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-5.png
+    menu_item_description : Eos Luibusdam—a mysterious phrase. Clarify context for a more precise and meaningful interpretation or description
+    menu_category : 13
+- model : section_content.MenuItem
+  pk : 22
+  fields :
+    menu_item_name : Laboriosam Direva
+    menu_item_price : 9.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-6.png
+    menu_item_description : Laboriosam Direva—ambiguous term. Additional context needed for a precise interpretation or meaningful description in various contexts.
+    menu_category : 13
+## Breakfast 
+- model : section_content.MenuItem
+  pk : 23
+  fields :
+    menu_item_name : Magnam Tiste
+    menu_item_price : 5.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-1.png
+    menu_item_description : Experience exquisite flavors with Magnam Tiste, a menu offering culinary delights and indulgent dishes curated for discerning tastes and preferences.
+    menu_category : 14
+- model : section_content.MenuItem
+  pk : 24
+  fields :
+    menu_item_name : Aut Luia
+    menu_item_price : 14.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-2.png
+    menu_item_description : Aut Luia—a mysterious term, context needed. Share details for a precise and meaningful response.
+    menu_category : 14
+- model : section_content.MenuItem
+  pk : 25
+  fields :
+    menu_item_name : Est Eligendi
+    menu_item_price : 8.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-3.png
+    menu_item_description : Est Eligendi—a Latin phrase meaning 'there is a choice.' Context is key for a precise interpretation.
+    menu_category : 14
+- model : section_content.MenuItem
+  pk : 26
+  fields :
+    menu_item_name : Eos Luibusdam
+    menu_item_price : 12.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-4.png
+    menu_item_description : Eos Luibusdam—Latin for 'with pleasures.' Depending on context, it may refer to enjoyable experiences or choices.
+    menu_category : 14
+- model : section_content.MenuItem
+  pk : 27
+  fields :
+    menu_item_name : Eos Luibusdam
+    menu_item_price : 12.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-5.png
+    menu_item_description : Eos Luibusdam—a mysterious phrase. Clarify context for a more precise and meaningful interpretation or description
+    menu_category : 14
+- model : section_content.MenuItem
+  pk : 28
+  fields :
+    menu_item_name : Laboriosam Direva
+    menu_item_price : 9.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-6.png
+    menu_item_description : Laboriosam Direva—ambiguous term. Additional context needed for a precise interpretation or meaningful description in various contexts.
+    menu_category : 14
+## Lunch
+- model : section_content.MenuItem
+  pk : 29
+  fields :
+    menu_item_name : Magnam Tiste
+    menu_item_price : 5.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-1.png
+    menu_item_description : Experience exquisite flavors with Magnam Tiste, a menu offering culinary delights and indulgent dishes curated for discerning tastes and preferences.
+    menu_category : 15
+- model : section_content.MenuItem
+  pk : 30
+  fields :
+    menu_item_name : Aut Luia
+    menu_item_price : 14.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-2.png
+    menu_item_description : Aut Luia—a mysterious term, context needed. Share details for a precise and meaningful response.
+    menu_category : 15
+- model : section_content.MenuItem
+  pk : 31
+  fields :
+    menu_item_name : Est Eligendi
+    menu_item_price : 8.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-3.png
+    menu_item_description : Est Eligendi—a Latin phrase meaning 'there is a choice.' Context is key for a precise interpretation.
+    menu_category : 15
+- model : section_content.MenuItem
+  pk : 32
+  fields :
+    menu_item_name : Eos Luibusdam
+    menu_item_price : 12.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-4.png
+    menu_item_description : Eos Luibusdam—Latin for 'with pleasures.' Depending on context, it may refer to enjoyable experiences or choices.
+    menu_category : 15
+- model : section_content.MenuItem
+  pk : 33
+  fields :
+    menu_item_name : Eos Luibusdam
+    menu_item_price : 12.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-5.png
+    menu_item_description : Eos Luibusdam—a mysterious phrase. Clarify context for a more precise and meaningful interpretation or description
+    menu_category : 15
+- model : section_content.MenuItem
+  pk : 34
+  fields :
+    menu_item_name : Laboriosam Direva
+    menu_item_price : 9.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-6.png
+    menu_item_description : Laboriosam Direva—ambiguous term. Additional context needed for a precise interpretation or meaningful description in various contexts.
+    menu_category : 15
+## Dinner
+- model : section_content.MenuItem
+  pk : 35
+  fields :
+    menu_item_name : Magnam Tiste
+    menu_item_price : 5.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-1.png
+    menu_item_description : Experience exquisite flavors with Magnam Tiste, a menu offering culinary delights and indulgent dishes curated for discerning tastes and preferences.
+    menu_category : 16
+- model : section_content.MenuItem
+  pk : 36
+  fields :
+    menu_item_name : Aut Luia
+    menu_item_price : 14.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-2.png
+    menu_item_description : Aut Luia—a mysterious term, context needed. Share details for a precise and meaningful response.
+    menu_category : 16
+- model : section_content.MenuItem
+  pk : 37
+  fields :
+    menu_item_name : Est Eligendi
+    menu_item_price : 8.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-3.png
+    menu_item_description : Est Eligendi—a Latin phrase meaning 'there is a choice.' Context is key for a precise interpretation.
+    menu_category : 16
+- model : section_content.MenuItem
+  pk : 38
+  fields :
+    menu_item_name : Eos Luibusdam
+    menu_item_price : 12.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-4.png
+    menu_item_description : Eos Luibusdam—Latin for 'with pleasures.' Depending on context, it may refer to enjoyable experiences or choices.
+    menu_category : 16
+- model : section_content.MenuItem
+  pk : 39
+  fields :
+    menu_item_name : Eos Luibusdam
+    menu_item_price : 12.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-5.png
+    menu_item_description : Eos Luibusdam—a mysterious phrase. Clarify context for a more precise and meaningful interpretation or description
+    menu_category : 16
+- model : section_content.MenuItem
+  pk : 40
+  fields :
+    menu_item_name : Laboriosam Direva
+    menu_item_price : 9.95
+    currency : $
+    menu_item_image : static/img/menu/menu-item-6.png
+    menu_item_description : Laboriosam Direva—ambiguous term. Additional context needed for a precise interpretation or meaningful description in various contexts.
+    menu_category : 16
+## Menu Ingredients
+- model : section_content.MenuIngredient
+  pk : 1
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 17
+- model : section_content.MenuIngredient
+  pk : 2
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 18
+- model : section_content.MenuIngredient
+  pk : 3
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 19
+- model : section_content.MenuIngredient
+  pk : 4
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 20
+- model : section_content.MenuIngredient
+  pk : 5
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 21
+- model : section_content.MenuIngredient
+  pk : 6
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 22
+### Breakfast
+- model : section_content.MenuIngredient
+  pk : 7
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 23
+- model : section_content.MenuIngredient
+  pk : 8
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 24
+- model : section_content.MenuIngredient
+  pk : 9
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 25
+- model : section_content.MenuIngredient
+  pk : 10
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 26
+- model : section_content.MenuIngredient
+  pk : 11
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 27
+- model : section_content.MenuIngredient
+  pk : 12
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 28
+### Lunch
+- model : section_content.MenuIngredient
+  pk : 13
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 29
+- model : section_content.MenuIngredient
+  pk : 14
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 30
+- model : section_content.MenuIngredient
+  pk : 15
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 31
+- model : section_content.MenuIngredient
+  pk : 16
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 32
+- model : section_content.MenuIngredient
+  pk : 17
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 33
+- model : section_content.MenuIngredient
+  pk : 18
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 34
+### Dinner
+- model : section_content.MenuIngredient
+  pk : 19
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 35
+- model : section_content.MenuIngredient
+  pk : 20
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 36
+- model : section_content.MenuIngredient
+  pk : 21
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 37
+- model : section_content.MenuIngredient
+  pk : 22
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 38
+- model : section_content.MenuIngredient
+  pk : 23
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 39
+- model : section_content.MenuIngredient
+  pk : 24
+  fields :
+    ingredient_name : Lorem, deren, trataro, filede, nerada
+    menu_item : 40
+
+# ============================================= Testimonials section content
+- model : section_content.Testimonials
+  pk : 1
+  fields :
+    comment : Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+    rating : 1
+    user_name : Saul Goodman
+    designation : Ceo & Founder
+    user_picture : static/img/testimonials/testimonials-1.jpg
+    section : 11
+- model : section_content.Testimonials
+  pk : 2
+  fields :
+    comment : Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+    rating : 5
+    user_name : Sara Wilsson
+    designation : Designer
+    user_picture : static/img/testimonials/testimonials-2.jpg
+    section : 11
+- model : section_content.Testimonials
+  pk : 3
+  fields :
+    comment : Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+    rating : 3
+    user_name : Jenny Lis
+    designation : Store Owner
+    user_picture : static/img/testimonials/testimonials-3.jpg
+    section : 11
+# - model : section_content.Testimonials
+#   pk : 4
+#   fields :
+#     comment : Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+#     rating : 5
+#     user_name : Matt Brandon
+#     designation : Freelanecer
+#     user_picture : static/img/testimonials/testimonials-4.jpg
+#     section : 11
+- model : section_content.Testimonials
+  pk : 5
+  fields :
+    comment : Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+    rating : 5
+    user_name : John Larson
+    designation : Entrepreneur
+    user_picture : static/img/testimonials/testimonials-4.jpg
+    section : 11
+# ============================================= Events section content
+- model : section_content.Events
+  pk : 1
+  fields :
+    event_title : Custom Parties
+    fees : 99.99
+    currency: $
+    description : Quo corporis voluptas ea ad. Consectetur inventore sapiente ipsum voluptas eos omnis facere. Enim facilis veritatis id est rem repudiandae nulla expedita quas.
+    background_image : static/img/event/events-1.jpg
+    section_id : 4
+- model : section_content.Events
+  pk : 2
+  fields :
+    event_title : Private Parties
+    fees : 289
+    currency: $
+    description : In delectus sint qui et enim. Et ab repudiandae inventore quaerat doloribus. Facere nemo vero est ut dolores ea assumenda et. Delectus saepe accusamus aspernatur.
+    background_image : static/img/event/events-2.jpg
+    section_id : 4
+- model : section_content.Events
+  pk : 3
+  fields :
+    event_title : Birthday Parties
+    fees : 499
+    currency: $
+    description : Laborum aperiam atque omnis minus omnis est qui assumenda quos. Quis id sit quibusdam. Esse quisquam ducimus officia ipsum ut quibusdam maxime. Non enim perspiciatis.
+    background_image : static/img/event/events-3.jpg
+    section_id : 4
+## Chefs section content
+- model : section_content.Chef
+  pk : 1
+  fields :
+    name : Walter White
+    designation : Master Chef
+    description : Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.
+    image : static/img/chefs/chefs-1.jpg
+    section : 5
+- model : section_content.Chef
+  pk : 2
+  fields :
+    name : Sarah Jhonson
+    designation : Patissier
+    description : Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.
+    image : static/img/chefs/chefs-2.jpg
+    section : 5
+- model : section_content.Chef
+  pk : 3
+  fields :
+    name : William Anderson
+    designation : Cook
+    description : Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.
+    image : static/img/chefs/chefs-3.jpg
+    section : 5
+## Book a table section content
+- model : section_content.BookingFormSection
+  pk : 1
+  fields :
+    image : static/img/reservation.jpg
+    note : Book a Table
+    section : 12
+# ============================================= Gallery section content
+- model : section_content.Gallery
+  pk : 1
+  fields :
+    image : static/img/gallery/gallery-1.jpg
+    note : Gallery 1
+    section : 6
+- model : section_content.Gallery
+  pk : 2
+  fields :
+    image : static/img/gallery/gallery-2.jpg
+    note : Gallery 2
+    section : 6
+- model : section_content.Gallery
+  pk : 3
+  fields :
+    image : static/img/gallery/gallery-3.jpg
+    note : Gallery 3
+    section : 6
+- model : section_content.Gallery
+  pk : 4
+  fields :
+    image : static/img/gallery/gallery-4.jpg
+    note : Gallery 4
+    section : 6
+- model : section_content.Gallery
+  pk : 5
+  fields :
+    image : static/img/gallery/gallery-5.jpg
+    note : Gallery 5
+    section : 6
+- model : section_content.Gallery
+  pk : 6
+  fields :
+    image : static/img/gallery/gallery-6.jpg
+    note : Gallery 6
+    section : 6
+- model : section_content.Gallery
+  pk : 7
+  fields :
+    image : static/img/gallery/gallery-7.jpg
+    note : Gallery 7
+    section : 6
+- model : section_content.Gallery
+  pk : 8
+  fields :
+    image : static/img/gallery/gallery-8.jpg
+    note : Gallery 8
+    section : 6
+
+# ============================================= Contact section content
+- model : section_content.ContactUsPageContent
+  pk : 1
+  fields :
+    map_link : <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3526084422438!2d90.33407417433726!3d23.591683894852896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bd20a32447eb%3A0x16a0bb3e6ee0f9c6!2z4Kaa4Ka-4Kaw4Ka_4KaX4Ka-4KaB4KaTIOCmuOCmsOCmleCmvuCmsOCmvyDgpqrgp43gprDgpr7gpqXgpq7gpr_gppUg4Kas4Ka_4Kam4KeN4Kav4Ka-4Kay4Ka-4KefIChDaGFyaWdhb24gR292ZXJubWVudCBQcmltYXJ5IFNjaG9vbCk!5e0!3m2!1sen!2sbd!4v1702932081183!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    location_name : Charigaon Government Primary School
+    section : 8
+
+# ============================================= Company Info section content
+- model : section_content.CompanyInformation
+  pk : 1
+  fields :
+    company_name : Yummy
+    logo_text : Yummy
+    # logo_image: static/img/logo.png
+    address : A108 Adam Street, New York, NY 535022
+    email : contact@example.com
+    contact_number : +1 5589 55488 55s
+    working_hours : "Mon-Sat: 11AM - 23PM; Sunday: Closed"

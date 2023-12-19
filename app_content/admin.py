@@ -1,35 +1,54 @@
 from django.contrib import admin
 
-from .models import SiteMenu, Section, About
+from .models import (
+    SiteMenu, 
+    Section
+    )
 # Register your models here.
 
 
-# class AboutInline(admin.StackedInline):  # or use admin.TabularInline
-#     model = About
-
-# class SectionInline(admin.StackedInline):  # or use admin.TabularInline
-#     model = Section
-#     inlines = [AboutInline]
-
-# class SiteMenuAdmin(admin.ModelAdmin):
-#     inlines = [SectionInline]
-
-# admin.site.register(SiteMenu, SiteMenuAdmin)
 
 class SectionInline(admin.StackedInline):
     model = Section
-    extra = 1
+    # inlines = [AboutInline]
 
-class SiteMenuAdmin(admin.ModelAdmin):
+
+
+@admin.register(SiteMenu)
+class MenuAdmin(admin.ModelAdmin):
+    # list_display = ('tab_name', 'section_name', 'notes')
     inlines = [SectionInline]
 
-admin.site.register(SiteMenu, SiteMenuAdmin)
+    list_display = ('tab_name', 'get_section_name','active_status','tab_id','id')
+    ordering = ('id',)
 
-class AboutInline(admin.StackedInline):
-    model = About
-    extra = 1
+    def get_section_name(self, obj):
+        # Assuming the SiteMenu has a related Section
+        section = Section.objects.get(site_menu=obj)
+        return section.section_name if section else ''
 
+    get_section_name.short_description = 'Section Name'
+
+    # This will help you to disbale add functionality
+    def has_add_permission(self, request):
+        return False
+
+    # This will help you to disable delete functionaliyt
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+
+
+@admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
-    inlines = [AboutInline]
+    # inlines = [AboutInline]
+    # This will help you to disbale add functionality
+    def has_add_permission(self, request):
+        return False
 
-admin.site.register(Section, SectionAdmin)
+    # This will help you to disable delete functionaliyt
+    def has_delete_permission(self, request, obj=None):
+        return False
+    
+

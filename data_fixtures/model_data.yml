@@ -1,0 +1,176 @@
+- model: app_content.SiteMenu
+  pk: 1
+  fields:
+    tab_name: Home
+    active_status: true
+    tab_id : hero
+    notes: Home/banner tab
+- model: app_content.SiteMenu
+  pk: 2
+  fields:
+    tab_name: About
+    active_status: true
+    tab_id : about
+    notes: About us tab
+- model: app_content.SiteMenu
+  pk: 3
+  fields:
+    tab_name: Menu
+    active_status: true
+    tab_id : menu
+    notes: Menu tab
+- model: app_content.SiteMenu
+  pk: 4
+  fields:
+    tab_name: Events
+    active_status: true
+    tab_id : events
+    notes: Events tab
+- model: app_content.SiteMenu
+  pk: 5
+  fields:
+    tab_name: Chefs
+    active_status: true
+    tab_id : chefs
+    notes: Chefs tab
+- model: app_content.SiteMenu
+  pk: 6
+  fields:
+    tab_name: Gallery
+    active_status: true
+    tab_id : gallery
+    notes: Gallery tab
+- model: app_content.SiteMenu
+  pk: 7
+  fields:
+    tab_name: Drop Down
+    active_status: true
+    tab_id : drop_down
+    notes: Drop Down tab
+- model: app_content.SiteMenu
+  pk: 8
+  fields:
+    tab_name: Contact
+    active_status: true
+    tab_id : contact
+    notes: Contact tab
+- model: app_content.SiteMenu
+  pk: 9
+  fields:
+    tab_name: Book A Table
+    active_status: true
+    tab_id : book-a-table
+    notes: Book table tab
+
+# Tab Section Content========================================
+- model: app_content.Section
+  pk: 1
+  fields:
+    section_name: Banner
+    section_title: Enjoy Your Healthy Delicious Food
+    section_background_photo: static/img/hero-img.png
+    bg_color: rgb(238, 238, 238)
+    notes: Home Tab Banner Section
+    site_menu: 1
+- model: app_content.Section
+  pk: 2
+  fields:
+    section_name: About Us
+    section_title: Learn More About Us
+    section_background_photo: static/img/about.jpg
+    bg_color: rgb(255, 255, 255)
+    notes: About Us Section
+    site_menu: 2
+- model: app_content.Section
+  pk: 3
+  fields:
+    section_name: Our Menu
+    section_title: Check Our Yummy Menu
+    # section_background_photo: 
+    bg_color: rgb(255, 255, 255)
+    notes: Menu Section
+    site_menu: 3
+- model: app_content.Section
+  pk: 4
+  fields:
+    section_name: Events
+    section_title: Share Your Moments In Our Restaurant
+    # section_background_photo: static/img/events.jpg
+    bg_color: rgb(255, 255, 255)
+    notes: Events Section
+    site_menu: 4
+- model: app_content.Section
+  pk: 5
+  fields:
+    section_name: Chefs
+    section_title: Our Proffesional Chefs
+    # section_background_photo: static/img/events.jpg
+    bg_color: rgb(255, 255, 255)
+    notes: Chefs Section
+    site_menu: 5
+- model: app_content.Section
+  pk: 6
+  fields:
+    section_name: gallery
+    section_title: Check Our Gallery
+    # section_background_photo: static/img/events.jpg
+    bg_color: rgb(255, 255, 255)
+    notes: Gallery Section
+    site_menu: 6
+- model: app_content.Section
+  pk: 7
+  fields:
+    section_name: Drop Down
+    section_title: drop down menu
+    # section_background_photo: static/img/events.jpg
+    bg_color: rgb(255, 255, 255)
+    notes: drop down menu
+    site_menu: 7
+- model: app_content.Section
+  pk: 8
+  fields:
+    section_name: Contact
+    section_title: Need Help? Contact Us
+    # section_background_photo: static/img/events.jpg
+    bg_color: rgb(255, 255, 255)
+    notes: Contact Us Section
+    site_menu: 8
+- model: app_content.Section
+  pk: 9
+  fields:
+    section_name: Why Choose Us
+    section_title: Why Choose Yummy?
+    # section_background_photo: static/img/events.jpg
+    bg_color: rgb(238, 238, 238)
+    notes: Contact Us Section
+    # site_menu: 9
+- model: app_content.Section
+  pk: 10
+  fields:
+    section_name: Statistics
+    section_title: Statistics
+    section_background_photo: static/img/stats-bg.jpg
+    bg_color: rgb(238, 238, 238)
+    notes: Statistics Section
+    # site_menu: 10
+- model: app_content.Section
+  pk: 11
+  fields:
+    section_name: Testimonials
+    section_title: What Are They Saying About Us
+    # section_background_photo: static/img/stats-bg.jpg
+    bg_color: rgb(238, 238, 238)
+    notes: User Testimonials Section
+    # site_menu: 10
+- model: app_content.Section
+  pk: 12
+  fields:
+    section_name: Book A Table
+    section_title: Book Your Stay With Us
+    section_background_photo: static/img/reservation.jpg
+    bg_color: rgb(255, 255, 255)
+    notes: Booking Table Section
+    site_menu: 9
+
+# About Page Content========================================
+  

@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # Local apps
     'account.apps.AccountConfig',
     'app_content.apps.AppContentConfig',
+    'section_content.apps.SectionContentConfig',
 
     # built-in apps
     'django.contrib.admin',
