@@ -18,6 +18,10 @@ class Slider(models.Model):
     video_active =models.BooleanField(default=False)
     section = models.OneToOneField(Section, on_delete=models.CASCADE)
 
+    @property
+    def tab_id(self):
+        return self.section.site_menu.tab_id
+
 
 
     def __str__(self):
@@ -37,8 +41,11 @@ class About(models.Model):
     about_description_end = models.TextField(blank=True)
     section = models.OneToOneField(Section, on_delete=models.CASCADE)
 
-    
+    @property
+    def tab_id(self):
+        return self.section.site_menu.tab_id
 
+    
     def __str__(self):
         return self.section.section_name
     
@@ -236,6 +243,7 @@ class CompanyInformation(models.Model):
     email = models.EmailField(max_length=100)
     contact_number = models.CharField(max_length=20)
     working_hours = models.CharField(max_length=100,blank=True)
+    closing_date = models.CharField(max_length=100,blank=True)
 
     def __str__(self):
         return self.company_name

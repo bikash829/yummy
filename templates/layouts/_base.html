@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>{% block title %}Yummy{% endblock title %}</title>
+    <title>{% block title %} {{company_information.company_name}} {% endblock title %}</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -60,16 +60,18 @@
         >
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="{% static '' %} assets/img/logo.png" alt=""> -->
-          <h1>Yummy<span>.</span></h1>
+          <h1>{{company_information.logo_text}}<span>.</span></h1>
         </a>
 
         <nav id="navbar" class="navbar">
           <ul>
             {% for menu_tab in site_menu %}
                 {% comment %} <li>{{ athlete.name }}</li> {% endcomment %}
-                {% comment %} <li><a href="#">{{ menu_tab.tab_name }}</a></li> {% endcomment %}
+                {%if menu_tab.tab_id != 'book-a-table' and menu_tab.active_status   %}
+                  <li><a href="#{{menu_tab.tab_id}}">{{ menu_tab.tab_name }}</a></li>
+                {% endif %}
             {% endfor %}
-
+{% comment %} 
              <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#menu">Menu</a></li>
@@ -101,7 +103,7 @@
                 <li><a href="#">Drop Down 4</a></li>
               </ul>
             </li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contact</a></li> {% endcomment %}
           </ul>
         </nav>
         <!-- .navbar -->
@@ -115,17 +117,16 @@
     <!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero d-flex align-items-center section-bg">
+    <section id="{{slider.tab_id}}" class="hero d-flex align-items-center section-bg">
         {% block hero %}
             <div class="container">
             <div class="row justify-content-between gy-5">
               <div
                 class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start"
               >
-                <h2 data-aos="fade-up">Enjoy Your Healthy<br />Delicious Food</h2>
+                <h2 data-aos="fade-up">{{slider.slider_title}}</h2>
                 <p data-aos="fade-up" data-aos-delay="100">
-                  Sed autem laudantium dolores. Voluptatem itaque ea consequatur
-                  eveniet. Eum quas beatae cumque eum quaerat.
+                  {{slider.slider_description}}
                 </p>
                 <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                   <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
@@ -138,7 +139,7 @@
               </div>
               <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
                 <img
-                  src=" {% static 'assets/img/hero-img.png' %} "
+                  src=" {{slider.slider_image}} "
                   class="img-fluid"
                   alt=""
                   data-aos="zoom-out"
@@ -154,8 +155,13 @@
 
     <main id="main">
         {% block content %}
+
+        {% comment %} test area ? {% endcomment %}
+        <div>
+          
+        </div>
             <!-- ======= About Section ======= -->
-      <section id="about" class="about">
+      <section id="{{about.tab_id}}" class="about">
         <div class="container" data-aos="fade-up">
   
           <div class="section-header">
@@ -167,7 +173,7 @@
             <div class="col-lg-7 position-relative about-img" style="background-image: url( {% static 'assets/img/about.jpg' %}) ;" data-aos="fade-up" data-aos-delay="150">
               <div class="call-us position-absolute">
                 <h4>Book a Table</h4>
-                <p>+1 5589 55488 55</p>
+                <p>{{company_information.contact_number}}</p>
               </div>
             </div>
             <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
@@ -982,7 +988,7 @@
                 <i class="icon bi bi-map flex-shrink-0"></i>
                 <div>
                   <h3>Our Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>{{company_information.address}}</p>
                 </div>
               </div>
             </div><!-- End Info Item -->
@@ -992,7 +998,7 @@
                 <i class="icon bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
-                  <p>contact@example.com</p>
+                  <p>{{company_information.email}}</p>
                 </div>
               </div>
             </div><!-- End Info Item -->
@@ -1002,7 +1008,7 @@
                 <i class="icon bi bi-telephone flex-shrink-0"></i>
                 <div>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <p>{{company_information.contact_number}}</p>
                 </div>
               </div>
             </div><!-- End Info Item -->
@@ -1012,8 +1018,9 @@
                 <i class="icon bi bi-share flex-shrink-0"></i>
                 <div>
                   <h3>Opening Hours</h3>
-                  <div><strong>Mon-Sat:</strong> 11AM - 23PM;
-                    <strong>Sunday:</strong> Closed
+                  <div>
+                    {{company_information.working_hours}}<br>
+                    {{company_information.closing_date}}
                   </div>
                 </div>
               </div>
@@ -1060,8 +1067,7 @@
             <div>
               <h4>Address</h4>
               <p>
-                A108 Adam Street <br />
-                New York, NY 535022 - US<br />
+                {{company_information.address}}
               </p>
             </div>
           </div>
@@ -1071,8 +1077,8 @@
             <div>
               <h4>Reservations</h4>
               <p>
-                <strong>Phone:</strong> +1 5589 55488 55<br />
-                <strong>Email:</strong> info@example.com<br />
+                <strong>Phone:</strong> {{company_information.contact_number}}<br />
+                <strong>Email:</strong> {{company_information.email}}<br />
               </p>
             </div>
           </div>
@@ -1082,8 +1088,8 @@
             <div>
               <h4>Opening Hours</h4>
               <p>
-                <strong>Mon-Sat: 11AM</strong> - 23PM<br />
-                Sunday: Closed
+                {{company_information.working_hours}}<br />
+                {{company_information.closing_date}}
               </p>
             </div>
           </div>
@@ -1102,7 +1108,7 @@
 
       <div class="container">
         <div class="copyright">
-          &copy; Copyright <strong><span>Yummy</span></strong
+          &copy; Copyright <strong><span>{{company_information.company_name}}</span></strong
           >. All Rights Reserved
         </div>
         <div class="credits">

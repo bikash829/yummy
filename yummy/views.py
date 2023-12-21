@@ -27,8 +27,11 @@ def index(request):
     context = {
         'site_menu': SiteMenu.objects.all(),
         'section': Section.objects.all(),
-        'slider': Slider.objects.all(),
-        'about': About.objects.all(),
+        # 'slider': Slider.objects.get(section__id = (Section.objects.get(site_menu__id = (SiteMenu.objects.get(tab_id = 'hero').id)).id)),
+        'slider': Slider.objects.get(section__site_menu__tab_id='hero'),
+        # 'about': About.objects.all(),
+        # 'about': About.objects.get(section__id = (Section.objects.get(site_menu__id = (SiteMenu.objects.get(tab_id = 'about').id)).id)),
+        'about': About.objects.get(section__site_menu__tab_id='about'),
         'about_list': AboutList.objects.all(),
         'why_us': WhyUs.objects.all(),
         'statistics': Statistics.objects.all(),
@@ -41,7 +44,15 @@ def index(request):
         'booking_form_section': BookingFormSection.objects.all(),
         'gallery': Gallery.objects.all(),
         'contact_us_page_content': ContactUsPageContent.objects.all(),
-        'company_information': CompanyInformation.objects.all(),
+        'company_information': CompanyInformation.objects.get(pk=1),
     }
+
+    # menu = SiteMenu.objects.get(tab_id = 'hero')
+    # section = Section.objects.get(site_menu__id = (menu.id))
+    # slider = Slider.objects.get(section__id = (section.id))
+
+    # print(f"slider: {menu.__dict__}")
+    # print(f"section: {section.__dict__}")    
+    # print(f"section: {slider.__dict__}")    
 
     return render(request,'layouts/_base.html',context)

@@ -2,7 +2,7 @@
 - model : section_content.Slider
   pk : 1
   fields :
-    slider_image : static/img/section_image/section1.jpg
+    slider_image : static/img/section_image/hero-img.png
     slider_title : Welcome To Our Restaurant
     slider_description : Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat. 
     # video_active : False
@@ -615,5 +615,6 @@
     # logo_image: static/img/logo.png
     address : A108 Adam Street, New York, NY 535022
     email : contact@example.com
-    contact_number : +1 5589 55488 55s
-    working_hours : "Mon-Sat: 11AM - 23PM; Sunday: Closed"
+    contact_number : +1 5589 55488 55
+    working_hours : "Mon-Sat: 11AM - 23PM"
+    closing_date : "Sunday: Closed"

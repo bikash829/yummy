@@ -20,7 +20,9 @@ class MenuAdmin(admin.ModelAdmin):
     inlines = [SectionInline]
 
     list_display = ('tab_name', 'get_section_name','active_status','tab_id','id')
+    readonly_fields = ('tab_id',)
     ordering = ('id',)
+    
 
     def get_section_name(self, obj):
         # Assuming the SiteMenu has a related Section
