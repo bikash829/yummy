@@ -5,7 +5,8 @@
     slider_image : static/img/section_image/hero-img.png
     slider_title : Welcome To Our Restaurant
     slider_description : Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat. 
-    # video_active : False
+    video_link : "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+    video_active : True
     section : 1
 - model : section_content.About
   pk : 2

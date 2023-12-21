@@ -35,7 +35,12 @@ def index(request):
         'about_list': AboutList.objects.all(),
         'why_us': WhyUs.objects.all(),
         'statistics': Statistics.objects.all(),
-        'menu_category': MenuCategory.objects.all(),
+        # 'menu_category': MenuCategory.objects.all(),
+        'menu' : {
+            'section' : Section.objects.get(site_menu__tab_id='menu'),
+            'tab_id' : 'menu',
+            'menu_category': MenuCategory.objects.filter(section__site_menu__tab_id='menu'),
+            },
         'menu_item': MenuItem.objects.all(),
         'menu_ingredient': MenuIngredient.objects.all(),
         'testimonials': Testimonials.objects.all(),
@@ -54,5 +59,6 @@ def index(request):
     # print(f"slider: {menu.__dict__}")
     # print(f"section: {section.__dict__}")    
     # print(f"section: {slider.__dict__}")    
+    # print(f"section: {context['menu_category'].__dict__}")
 
     return render(request,'layouts/_base.html',context)
