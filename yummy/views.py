@@ -46,9 +46,10 @@ def index(request):
             'section' : Section.objects.get(site_menu__tab_id='menu'),
             'tab_id' : 'menu',
             'menu_category': MenuCategory.objects.filter(section__site_menu__tab_id='menu'),
+            'menu_item': MenuItem.objects.all(),
+            'menu_ingredient': MenuIngredient.objects.all(),
             },
-        'menu_item': MenuItem.objects.all(),
-        'menu_ingredient': MenuIngredient.objects.all(),
+        
         'testimonials': Testimonials.objects.all(),
         'events': Events.objects.all(),
         'chef': Chef.objects.all(),

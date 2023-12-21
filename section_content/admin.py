@@ -99,7 +99,10 @@ class StatisticsAdmin(admin.ModelAdmin):
 """/ 
     Our Menu 
 /"""
-admin.site.register(MenuCategory)
+@admin.register(MenuCategory)
+class MenuCategoryAdmin(admin.ModelAdmin):
+    list_display = ('menu_category_name', 'category_id')
+# admin.site.register(MenuCategory)
 admin.site.register(MenuItem)
 admin.site.register(MenuIngredient)
     

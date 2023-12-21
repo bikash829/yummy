@@ -105,6 +105,7 @@ class Statistics(models.Model):
 
 class MenuCategory(models.Model):                                          
     menu_category_name = models.CharField(max_length=100)
+    category_id = models.CharField(max_length=100)
     section = models.ForeignKey(Section, on_delete=models.CASCADE)
 
     def __str__(self):

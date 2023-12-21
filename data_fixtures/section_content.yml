@@ -84,21 +84,25 @@
   pk : 13
   fields :
     menu_category_name : Starters
+    category_id : menu-starters
     section : 3
 - model : section_content.MenuCategory
   pk : 14
   fields :
     menu_category_name : Breakfast
+    category_id : menu-breakfast
     section : 3
 - model : section_content.MenuCategory
   pk : 15
   fields :
     menu_category_name : Lunch
+    category_id : menu-lunch
     section : 3
 - model : section_content.MenuCategory
   pk : 16
   fields :
     menu_category_name : Dinner
+    category_id : menu-dinner
     section : 3
 ## Menu Item
 - model : section_content.MenuItem
