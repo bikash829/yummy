@@ -45,6 +45,7 @@ class MenuAdmin(admin.ModelAdmin):
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
     # inlines = [AboutInline]
+    list_display = ('section_name','section_title','id')
     # This will help you to disbale add functionality
     def has_add_permission(self, request):
         return False

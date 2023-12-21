@@ -69,7 +69,24 @@ class WhyUsAdmin(admin.ModelAdmin):
             return False
         return super().has_add_permission(request)
 
-admin.site.register(Statistics)
+# admin.site.register(Statistics)
+@admin.register(Statistics)
+class StatisticsAdmin(admin.ModelAdmin):
+    # inlines = [AboutInline]
+    list_display = ('title','number',)
+
+    # def get_section_name(self, obj):
+    #     return obj.section.section_name
+
+    # verbose_name = "Statistics"
+    # max_statistics_records = 4
+    def has_add_permission(self, request):
+    # Check if the number of existing records is less than the maximum allowed
+        return False
+    
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 admin.site.register(MenuCategory)
 admin.site.register(MenuItem)
 admin.site.register(MenuIngredient)

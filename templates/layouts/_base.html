@@ -219,10 +219,9 @@
   
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
               <div class="why-box">
-                <h3>Why Choose Yummy?</h3>
+                <h3>{{why_us.section.section_title}}</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                  Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                  {{why_us.section.notes}}
                 </p>
                 <div class="text-center">
                   <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
@@ -232,8 +231,18 @@
   
             <div class="col-lg-8 d-flex align-items-center">
               <div class="row gy-4">
+
+                {% for why_us_list in why_us.list %}
+                  <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                      <i class="{{why_us_list.icon}}"></i>
+                      <h4>{{why_us_list.title}}</h4>
+                      <p>{{why_us_list.description}}</p>
+                    </div>
+                  </div><!-- End Icon Box -->
+                {% endfor %}
   
-                <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                {% comment %} <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
                   <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                     <i class="bi bi-clipboard-data"></i>
                     <h4>Corporis voluptates officia eiusmod</h4>
@@ -255,7 +264,7 @@
                     <h4>Labore consequatur incidid dolore</h4>
                     <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
                   </div>
-                </div><!-- End Icon Box -->
+                </div><!-- End Icon Box --> {% endcomment %}
   
               </div>
             </div>

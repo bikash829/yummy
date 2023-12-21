@@ -33,7 +33,10 @@ def index(request):
         # 'about': About.objects.get(section__id = (Section.objects.get(site_menu__id = (SiteMenu.objects.get(tab_id = 'about').id)).id)),
         'about': About.objects.get(section__site_menu__tab_id='about'),
         'about_list': AboutList.objects.all(),
-        'why_us': WhyUs.objects.all(),
+        'why_us': {
+            'section': Section.objects.get(pk=9),
+            'list' : WhyUs.objects.all(),
+        }, 
         'statistics': Statistics.objects.all(),
         # 'menu_category': MenuCategory.objects.all(),
         'menu' : {
