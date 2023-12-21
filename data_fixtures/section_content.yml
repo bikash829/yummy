@@ -2,7 +2,7 @@
 - model : section_content.Slider
   pk : 1
   fields :
-    slider_image : static/img/section_image/hero-img.png
+    slider_image : static/img/about-2.jpg
     slider_title : Welcome To Our Restaurant
     slider_description : Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat. 
     video_link : "https://www.youtube.com/watch?v=LXb3EKWsInQ"
@@ -12,6 +12,8 @@
   pk : 2
   fields :
     image : static/img/section_image/section2.jpg
+    video_link : "https://www.youtube.com/watch?v=LXb3EKWsInQ"
+    video_active : True
     about_description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     about_description_end : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     section : 2

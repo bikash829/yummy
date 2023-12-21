@@ -167,12 +167,13 @@
         <div class="container" data-aos="fade-up">
   
           <div class="section-header">
-            <h2>About Us</h2>
-            <p>Learn More <span>About Us</span></p>
+            <h2>{{about.section.section_name}}</h2>
+            {% comment %} <p>Learn More <span>About Us</span></p> {% endcomment %}
+            <p>{{about.section.section_title}}</p>
           </div>
   
           <div class="row gy-4">
-            <div class="col-lg-7 position-relative about-img" style="background-image: url( {% static 'assets/img/about.jpg' %}) ;" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-lg-7 position-relative about-img" style="background-image: url({{about.section.section_background_photo}}) ;" data-aos="fade-up" data-aos-delay="150">
               <div class="call-us position-absolute">
                 <h4>Book a Table</h4>
                 <p>{{company_information.contact_number}}</p>
@@ -181,22 +182,27 @@
             <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
               <div class="content ps-0 ps-lg-5">
                 <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
+                  {{about.about_description}}
                 </p>
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                  {% for about_list in about.aboutlist_set.all %}
+                    <li><i class="bi bi-check2-all"></i> {{about_list}}</li>
+                  {% endfor %}
+                  {% comment %} <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
                   <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                 {% endcomment %}
                 </ul>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                  {{about.about_description_end}}
                 </p>
+                
   
                 <div class="position-relative mt-4">
-                  <img src="{% static 'assets/img/about-2.jpg' %} " class="img-fluid" alt="">
-                  <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                  {% if about.video_active %}
+                  <img src="{{about.image}} " class="img-fluid" alt="">
+                  <a href="{{about.video_link}}" class="glightbox play-btn"></a>
+                  {% comment %} <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a> {% endcomment %}
+                  {% endif %}
                 </div>
               </div>
             </div>

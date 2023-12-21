@@ -37,6 +37,8 @@ class Slider(models.Model):
 class About(models.Model):
     # about_code = models.CharField(max_length=100)
     image = models.ImageField(upload_to="static/img/section_image/",blank=True,max_length=191)
+    video_link = models.TextField(blank=True)
+    video_active =models.BooleanField(default=True)
     about_description = models.TextField(blank=True)
     about_description_end = models.TextField(blank=True)
     section = models.OneToOneField(Section, on_delete=models.CASCADE)

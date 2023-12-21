@@ -22,7 +22,16 @@ from .models import (
 
 admin.site.register(Slider)
 
-admin.site.register(About)
+# admin.site.register(About)
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ('get_section_name','video_active',)
+
+    def get_section_name(self, obj):
+        return obj.section.section_name
+
+    # get_section_name.short_description = 'Section Name'
+
 admin.site.register(AboutList)
 
 
