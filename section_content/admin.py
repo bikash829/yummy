@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.http.request import HttpRequest
 
 # Register your models here.
 from .models import (
@@ -22,8 +23,12 @@ from .models import (
 """/
     # Slider
 /"""
-admin.site.register(Slider)
+@admin.register(Slider)
+class SliderAdmin(admin.ModelAdmin):
+    # list_display = ('get_section_name','title','description','active_status',)
 
+    def has_add_permission(self, request):
+        return False
 """/
     # About us
 /"""
@@ -69,31 +74,66 @@ class WhyUsAdmin(admin.ModelAdmin):
             return False
         return super().has_add_permission(request)
 
+
+"""/
+    # Statistics
+/"""
 # admin.site.register(Statistics)
 @admin.register(Statistics)
 class StatisticsAdmin(admin.ModelAdmin):
     # inlines = [AboutInline]
     list_display = ('title','number',)
+    max_records = 3
+
+    def has_add_permission(self, request):
+    # Check if the number of existing records is less than the maximum allowed
+        if Statistics.objects.count() >= self.max_records:
+            return False
+        return super().has_add_permission(request)
 
     # def get_section_name(self, obj):
     #     return obj.section.section_name
-
-    # verbose_name = "Statistics"
-    # max_statistics_records = 4
-    def has_add_permission(self, request):
-    # Check if the number of existing records is less than the maximum allowed
-        return False
     
-    def has_delete_permission(self, request, obj=None):
-        return False
-
+    # def has_delete_permission(self, request, obj=None):
+    #     return False
+"""/ 
+    Our Menu 
+/"""
 admin.site.register(MenuCategory)
 admin.site.register(MenuItem)
 admin.site.register(MenuIngredient)
+    
+"""/
+    # Testimonials
+/"""
 admin.site.register(Testimonials)
+
+"""/
+    # Events
+/"""
 admin.site.register(Events)
+    
+"""/
+    # Chef
+/"""
 admin.site.register(Chef)
+        
+"""/
+    # Booking Form Section
+/"""
 admin.site.register(BookingFormSection)
+    
+"""/
+    # Gallery
+/"""
 admin.site.register(Gallery)
+        
+"""/
+    # Contact Us Page Content
+/"""
 admin.site.register(ContactUsPageContent)
+            
+"""/
+    # Company Information
+/"""
 admin.site.register(CompanyInformation)
