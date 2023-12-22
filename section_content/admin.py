@@ -103,6 +103,7 @@ class StatisticsAdmin(admin.ModelAdmin):
 class MenuCategoryAdmin(admin.ModelAdmin):
     list_display = ('menu_category_name', 'category_id')
 # admin.site.register(MenuCategory)
+    
 @admin.register(MenuItem)
 class MenuItemAdmin(admin.ModelAdmin):
     list_display = ('menu_item_name', 'menu_category', 'menu_item_price')
