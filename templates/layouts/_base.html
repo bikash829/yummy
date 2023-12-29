@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
+{% load custom_filters %}
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -329,7 +331,7 @@
   
           <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
   
-            {% for category in menu.menu_category %}
+            {% for category in menu.menu_category %} <!-- Menu Category -->
             
               {% if forloop.first %}
                 <li class="nav-item">
@@ -350,7 +352,7 @@
   
           <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
             
-              {% for category in menu.menu_category %}
+              {% for category in menu.menu_category %} <!-- Menu Category -->
                 {% if forloop.first %}
                   <div class="tab-pane fade active show" id="{{category.category_id}}">
       
@@ -363,24 +365,24 @@
                   
       
                   <div class="row gy-5">
-                    {% for menu_item in category.menuitem_set.all %}
+                    {% for menu_item in category.menuitem_set.all %}  <!-- Menu Item -->
                     <div class="col-lg-4 menu-item">
                       <a href="{{menu_item.menu_item_image}}" class="glightbox"><img src="{{menu_item.menu_item_image}}" class="menu-img img-fluid" alt=""></a>
                       <h4>{{menu_item.menu_item_name}}</h4>
                       <p class="ingredients">
-                        {% for ingredient in menu_item.menuingredient_set.all %}
+                        {% for ingredient in menu_item.menuingredient_set.all %} <!-- Menu Ingredient -->
                           {{ingredient.ingredient_name}}
                         {% endfor %}
                       </p>
                       <p class="price">
                         {{menu_item.currency}}{{menu_item.menu_item_price}}
                       </p>
-                    </div><!-- Menu Item -->
+                    </div><!--end Menu Item -->
                     {% endfor %}
                   </div>
                   </div><!-- End Starter Menu Content -->
                 {% else %}
-                  <div class="tab-pane fade show" id="{{category.category_id}}">
+                  <div class="tab-pane fade show" id="{{category.category_id}}"> 
       
                     <div class="tab-header text-center">
                       <p>Menu</p>
@@ -400,7 +402,7 @@
                           <p class="price">
                             {{menu_item.currency}}{{menu_item.menu_item_price}}
                           </p>
-                        </div><!-- Menu Item --> 
+                        </div><!--End Menu Item --> 
                       {% endfor %}
 
                       
@@ -418,109 +420,41 @@
         <div class="container" data-aos="fade-up">
   
           <div class="section-header">
-            <h2>Testimonials</h2>
-            <p>What Are They <span>Saying About Us</span></p>
+            <h2>{{testimonial.section.section_name}}</h2>
+            {% comment %} <p>What Are They <span>Saying About Us</span></p> {% endcomment %}
+            <p>{{testimonial.section.section_title}}</p>
           </div>
   
           <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
-  
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="row gy-4 justify-content-center">
-                    <div class="col-lg-6">
-                      <div class="testimonial-content">
-                        <p>
-                          <i class="bi bi-quote quote-icon-left"></i>
-                          Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                          <i class="bi bi-quote quote-icon-right"></i>
-                        </p>
-                        <h3>Saul Goodman</h3>
-                        <h4>Ceo &amp; Founder</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              {% for client_testimonial in testimonial.clients_testimonial %}  <!--Client testimonial block-->
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <div class="row gy-4 justify-content-center">
+                      <div class="col-lg-6">
+                        <div class="testimonial-content">
+                          <p>
+                            <i class="bi bi-quote quote-icon-left"></i>
+                            {{client_testimonial.comment}}
+                            <i class="bi bi-quote quote-icon-right"></i>
+                          </p>
+                          <h3>{{client_testimonial.user_name}}</h3>
+                          <h4>{{client_testimonial.designation}}</h4>
+                          <div class="stars">
+                            {% for i in client_testimonial.rating|range_filter  %}
+                              <i class="bi bi-star-fill"></i>
+                            {%endfor%}
+                           
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-lg-2 text-center">
-                      <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %} " class="img-fluid testimonial-img" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-  
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="row gy-4 justify-content-center">
-                    <div class="col-lg-6">
-                      <div class="testimonial-content">
-                        <p>
-                          <i class="bi bi-quote quote-icon-left"></i>
-                          Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                          <i class="bi bi-quote quote-icon-right"></i>
-                        </p>
-                        <h3>Sara Wilsson</h3>
-                        <h4>Designer</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
+                      <div class="col-lg-2 text-center">
+                        <img src="{{client_testimonial.user_picture}} " class="img-fluid testimonial-img" alt="">
                       </div>
                     </div>
-                    <div class="col-lg-2 text-center">
-                      <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %} " class="img-fluid testimonial-img" alt="">
-                    </div>
                   </div>
-                </div>
-              </div><!-- End testimonial item -->
-  
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="row gy-4 justify-content-center">
-                    <div class="col-lg-6">
-                      <div class="testimonial-content">
-                        <p>
-                          <i class="bi bi-quote quote-icon-left"></i>
-                          Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                          <i class="bi bi-quote quote-icon-right"></i>
-                        </p>
-                        <h3>Jena Karlis</h3>
-                        <h4>Store Owner</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-2 text-center">
-                      <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %} " class="img-fluid testimonial-img" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-  
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="row gy-4 justify-content-center">
-                    <div class="col-lg-6">
-                      <div class="testimonial-content">
-                        <p>
-                          <i class="bi bi-quote quote-icon-left"></i>
-                          Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                          <i class="bi bi-quote quote-icon-right"></i>
-                        </p>
-                        <h3>John Larson</h3>
-                        <h4>Entrepreneur</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-2 text-center">
-                      <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %} " class="img-fluid testimonial-img" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-  
+                </div><!-- End testimonial item -->
+              {% endfor %}
             </div>
             <div class="swiper-pagination"></div>
           </div>

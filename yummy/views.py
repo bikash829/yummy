@@ -49,8 +49,15 @@ def index(request):
             'menu_item': MenuItem.objects.all(),
             'menu_ingredient': MenuIngredient.objects.all(),
             },
+        # Testimonials Data 
+
+        'testimonial': {
+                'section' :  Section.objects.get(pk=11),
+                'clients_testimonial' : Testimonials.objects.all(),
+        },
         
-        'testimonials': Testimonials.objects.all(),
+
+
         'events': Events.objects.all(),
         'chef': Chef.objects.all(),
         'booking_form_section': BookingFormSection.objects.all(),
