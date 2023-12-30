@@ -66,6 +66,12 @@ def index(request):
         },
         # 'events': Events.objects.all(),
         
+        # Chef Data
+        'chefs': {
+            'section' : Section.objects.get(site_menu__tab_id='chefs'),
+            'tab_id' : 'chefs',
+            'chef_infos': Chef.objects.all(),
+        },
         'chef': Chef.objects.all(),
         'booking_form_section': BookingFormSection.objects.all(),
         'gallery': Gallery.objects.all(),

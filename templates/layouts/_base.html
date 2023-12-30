@@ -467,8 +467,8 @@
         <div class="container-fluid" data-aos="fade-up">
   
           <div class="section-header">
-            <h2>{{events.section_name}}</h2>
-            <p>{{events.section_title}}</p>
+            <h2>{{events.section.section_name}}</h2>
+            <p>{{events.section.section_title}}</p>
             {% comment %} <p>Share <span>Your Moments</span> In Our Restaurant</p> {% endcomment %}
           </div>
   
@@ -485,25 +485,6 @@
                   </p>
                 </div><!-- End Event item -->
               {% endfor %}
-  
-             
-{% comment %}   
-              <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({% static 'assets/img/events-2.jpg' %})">
-                <h3>Private Parties</h3>
-                <div class="price align-self-start">$289</div>
-                <p class="description">
-                  In delectus sint qui et enim. Et ab repudiandae inventore quaerat doloribus. Facere nemo vero est ut dolores ea assumenda et. Delectus saepe accusamus aspernatur.
-                </p>
-              </div><!-- End Event item -->
-  
-              <div class="swiper-slide event-item d-flex flex-column justify-content-end" style="background-image: url({% static 'assets/img/events-3.jpg' %})">
-                <h3>Birthday Parties</h3>
-                <div class="price align-self-start">$499</div>
-                <p class="description">
-                  Laborum aperiam atque omnis minus omnis est qui assumenda quos. Quis id sit quibusdam. Esse quisquam ducimus officia ipsum ut quibusdam maxime. Non enim perspiciatis.
-                </p>
-              </div><!-- End Event item -->
-   {% endcomment %}
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -512,75 +493,41 @@
       </section><!-- End Events Section -->
   
       <!-- ======= Chefs Section ======= -->
-      <section id="chefs" class="chefs section-bg">
+      <section id="{{chefs.tab_id}}" class="chefs section-bg">
         <div class="container" data-aos="fade-up">
   
           <div class="section-header">
-            <h2>Chefs</h2>
-            <p>Our <span>Proffesional</span> Chefs</p>
+            <h2>{{chefs.section.section_name}}</h2>
+            <p>{{chefs.section.section_title}}</p>
+            {% comment %} <p>Our <span>Proffesional</span> Chefs</p> {% endcomment %}
           </div>
   
           <div class="row gy-4">
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-              <div class="chef-member">
-                <div class="member-img">
-                  <img src="{% static 'assets/img/chefs/chefs-1.jpg' %} " class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+
+            {% for chef in chefs.chef_infos %}
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="chef-member">
+                  <div class="member-img">
+                    <img src="{{chef.image}} " class="img-fluid" alt="">
+                    {% comment %} <img src="{% static 'assets/img/chefs/chefs-1.jpg' %} " class="img-fluid" alt=""> {% endcomment %}
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                  <div class="member-info">
+                    <h4>{{chef.name}}</h4>
+                    <span>{{chef.designation}}</span>
+                    <p>{{chef.description}}</p>
                   </div>
                 </div>
-                <div class="member-info">
-                  <h4>Walter White</h4>
-                  <span>Master Chef</span>
-                  <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
-                </div>
-              </div>
-            </div><!-- End Chefs Member -->
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-              <div class="chef-member">
-                <div class="member-img">
-                  <img src="{% static 'assets/img/chefs/chefs-2.jpg' %} " class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Patissier</span>
-                  <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
-                </div>
-              </div>
-            </div><!-- End Chefs Member -->
-  
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-              <div class="chef-member">
-                <div class="member-img">
-                  <img src="{% static 'assets/img/chefs/chefs-3.jpg' %}" class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>William Anderson</h4>
-                  <span>Cook</span>
-                  <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-                </div>
-              </div>
-            </div><!-- End Chefs Member -->
+              </div><!-- End Chefs Member -->
+            
+            {% endfor %}
   
           </div>
-  
         </div>
       </section><!-- End Chefs Section -->
   
