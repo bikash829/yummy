@@ -11,7 +11,7 @@ from .models import (
     MenuCategory,
     MenuItem,
     MenuIngredient,
-    Testimonials,
+    Testimonials, #***
     Events,
     Chef,
     BookingFormSection,

@@ -57,8 +57,15 @@ def index(request):
         },
         
 
+        # Events Data
 
-        'events': Events.objects.all(),
+        'events': {
+            'section' : Section.objects.get(site_menu__tab_id='events'),
+            'tab_id' : 'events',
+            'event_contents': Events.objects.all(),
+        },
+        # 'events': Events.objects.all(),
+        
         'chef': Chef.objects.all(),
         'booking_form_section': BookingFormSection.objects.all(),
         'gallery': Gallery.objects.all(),
