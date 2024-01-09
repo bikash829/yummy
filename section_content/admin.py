@@ -18,6 +18,7 @@ from .models import (
     Gallery,
     ContactUsPageContent,
     CompanyInformation,
+    Reservation,
 )
 
 """/
@@ -147,3 +148,12 @@ admin.site.register(ContactUsPageContent)
     # Company Information
 /"""
 admin.site.register(CompanyInformation)
+
+
+"""/
+    # Reservations info
+/"""
+@admin.register(Reservation)
+class ReservationAdmin(admin.ModelAdmin):
+    list_display = ('customer_name','email','phone_number')
+

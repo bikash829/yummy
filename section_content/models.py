@@ -252,3 +252,24 @@ class CompanyInformation(models.Model):
         return self.company_name
 
 
+"""/
+    # Reservation Model
+/"""
+class Reservation(models.Model):
+    customer_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    phone_number = models.CharField(max_length=20)
+    date = models.CharField(max_length=100)
+    time = models.CharField(max_length=100)
+    message = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.customer_name
+    
+    class Meta:
+        verbose_name = "Reservation"
+        verbose_name_plural = "Reservations"
+# """/
+#     #  Contact Us Model
+# /"""
+# class ContactUsMessage(models.Model):

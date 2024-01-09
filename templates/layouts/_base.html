@@ -532,17 +532,18 @@
       </section><!-- End Chefs Section -->
   
       <!-- ======= Book A Table Section ======= -->
-      <section id="book-a-table" class="book-a-table">
+      <section id="{{booking_form_section.section.site_menu.tab_id}}" class="book-a-table">
         <div class="container" data-aos="fade-up">
   
           <div class="section-header">
-            <h2>Book A Table</h2>
-            <p>Book <span>Your Stay</span> With Us</p>
+            <h2>{{booking_form_section.section.section_name}}</h2>
+            <p>{{booking_form_section.section.section_title}}</p>
+            {% comment %} <p>Book <span>Your Stay</span> With Us</p> {% endcomment %}
           </div>
   
           <div class="row g-0">
   
-            <div class="col-lg-4 reservation-img" style="background-image: url({% static 'assets/img/reservation.jpg' %});" data-aos="zoom-out" data-aos-delay="200"></div>
+            <div class="col-lg-4 reservation-img" style="background-image: url({{booking_form_section.section.section_background_photo}});" data-aos="zoom-out" data-aos-delay="200"></div>
   
             <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
               <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">

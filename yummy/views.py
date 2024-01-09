@@ -72,8 +72,15 @@ def index(request):
             'tab_id' : 'chefs',
             'chef_infos': Chef.objects.all(),
         },
-        'chef': Chef.objects.all(),
-        'booking_form_section': BookingFormSection.objects.all(),
+
+
+        # Booking Form Section Data
+        'booking_form_section': {
+            'section' : Section.objects.get(site_menu__tab_id = 'book-a-table'),
+        },
+        # 'booking_form_section': BookingFormSection.objects.all(),
+
+
         'gallery': Gallery.objects.all(),
         'contact_us_page_content': ContactUsPageContent.objects.all(),
         'company_information': CompanyInformation.objects.get(pk=1),

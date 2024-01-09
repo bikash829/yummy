@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'app_content.apps.AppContentConfig',
     'section_content.apps.SectionContentConfig',
+    'reservation.apps.ReservationConfig',
 
     # built-in apps
     'django.contrib.admin',
