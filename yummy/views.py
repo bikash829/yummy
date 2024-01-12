@@ -1,5 +1,6 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect, HttpResponse
+from django.http import JsonResponse
+from django.contrib import messages
 from app_content.models import (
     SiteMenu, 
     Section
@@ -21,6 +22,10 @@ from section_content.models import (
     ContactUsPageContent,
     CompanyInformation,
 )
+
+# from reservation.forms import ReservationForm
+from section_content.forms import ContactForm, ReservationForm
+
 
 def index(request):
 
@@ -84,6 +89,10 @@ def index(request):
         'gallery': Gallery.objects.all(),
         'contact_us_page_content': ContactUsPageContent.objects.all(),
         'company_information': CompanyInformation.objects.get(pk=1),
+
+        # 'reservation_form': ReservationForm(),
+        # Reservation form =================================
+        'reservation_form': ReservationForm(),
     }
 
     # menu = SiteMenu.objects.get(tab_id = 'hero')
@@ -95,4 +104,22 @@ def index(request):
     # print(f"section: {slider.__dict__}")    
     # print(f"section: {context['menu_category'].__dict__}")
 
+    return render(request,'layouts/_base.html',context)
+
+
+"""/
+    # Reservation form =================================
+/"""
+def reservation_form(request):
+
+    if request.method == "POST":
+        reservation_form = ReservationForm(request.POST)
+        if reservation_form.is_valid():
+            # process the data in form.cleaned_data as required
+            # 
+            reservation_form.save()
+            return HttpResponse("Reservation form submitted successfully")
+    context = {
+        'reservation_form': ReservationForm(),
+    }
     return render(request,'layouts/_base.html',context)

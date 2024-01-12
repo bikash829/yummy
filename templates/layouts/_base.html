@@ -546,43 +546,56 @@
             <div class="col-lg-4 reservation-img" style="background-image: url({{booking_form_section.section.section_background_photo}});" data-aos="zoom-out" data-aos-delay="200"></div>
   
             <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-              <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+              <form action="{% url 'reservation_form' %}" id="form-reservation" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+                {% csrf_token %}
+
+                <!--Fields section-->
                 <div class="row gy-4">
                   <div class="col-lg-4 col-md-6">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    {% comment %} <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars"> {% endcomment %}
+                    {{reservation_form.customer_name}}
                     <div class="validate"></div>
                   </div>
                   <div class="col-lg-4 col-md-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                    {% comment %} <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email"> {% endcomment %}
+                    {{reservation_form.email}}
                     <div class="validate"></div>
                   </div>
                   <div class="col-lg-4 col-md-6">
-                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    {% comment %} <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars"> {% endcomment %}
+                    {{reservation_form.phone_number}}
                     <div class="validate"></div>
                   </div>
                   <div class="col-lg-4 col-md-6">
-                    <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    {% comment %} <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars"> {% endcomment %}
+                    {{reservation_form.date}}
                     <div class="validate"></div>
                   </div>
                   <div class="col-lg-4 col-md-6">
-                    <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                    {% comment %} <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars"> {% endcomment %}
+                    {{reservation_form.time}}
                     <div class="validate"></div>
                   </div>
                   <div class="col-lg-4 col-md-6">
-                    <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+                    {% comment %} <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars"> {% endcomment %}
+                    {{reservation_form.guests}}
                     <div class="validate"></div>
                   </div>
                 </div>
+
                 <div class="form-group mt-3">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                  {% comment %} <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>  {% endcomment %}
+                  {{reservation_form.message}}
                   <div class="validate"></div>
-                </div>
-                <div class="mb-3">
+                </div> 
+                <!--End Fields section-->
+              
+                {% comment %} <div class="mb-3">
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
                   <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-                </div>
-                <div class="text-center"><button type="submit">Book a Table</button></div>
+                </div> {% endcomment %}
+                <div class="text-center mt-3"><button type="submit">Book a Table</button></div>
               </form>
             </div><!-- End Reservation Form -->
   
@@ -780,15 +793,96 @@
 
     <div id="preloader"></div>
 
+    <!-- Toast -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          {% comment %} <img src="..." class="rounded me-2" alt="..."> {% endcomment %}
+          <strong class="me-auto">Alert</strong>
+          {% comment %} <small>11 mins ago</small> {% endcomment %}
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div id="toast-body" class="toast-body"></div>
+      </div>
+    </div>
+    
+
     <!-- Vendor JS Files -->
     <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
     <script src="{% static 'assets/vendor/aos/aos.js' %} "></script>
     <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %} "></script>
     <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %} "></script>
     <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %} "></script>
-    <script src="{% static 'assets/vendor/php-email-form/validate.js' %} "></script>
+    {% comment %} <script src="{% static 'assets/vendor/php-email-form/validate.js' %} "></script> {% endcomment %}
+
+    <!-- Jqury cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 
     <!-- Template Main JS File -->
     <script src="{% static 'assets/js/main.js' %} "></script>
+    <!-- axios -->
+    {% comment %} <script src="https://unpkg.com/axios/dist/axios.min.js"></script> {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <script>
+      
+    /*
+        if (toastTrigger) {
+          const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+          toastTrigger.addEventListener('click', () => {
+            toastBootstrap.show()
+          })
+        }
+        */
+      $(document).ready(function(){
+        /*
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+        */
+        $('#liveToast').toast(); // Initialize toast
+        
+
+        console.log("Hello Doc From Jquery")
+
+        const formReservation = $('#form-reservation')
+
+        formReservation.submit(function(e){
+          e.preventDefault()
+          console.log("Form Submitted")
+
+          const url = $(this).attr('action')
+          const method = $(this).attr('method')
+          const data = $(this).serialize()
+
+          console.log(url)
+          console.log(method)
+          console.log(data)
+
+          
+          axios({
+            url:url,
+            method:method,
+            data:data
+          })
+          .then(function(response){
+            if(response.status == 200){
+              console.log(response.data)
+              $('#toast-body').text(response.data)
+              $('#liveToast').toast('show');
+
+            }else{
+              alert("Something Went Wrong")
+            }
+          })
+          .catch(function(error){
+            $('#toast-body').text(error)
+            $('#liveToast').toast('show');
+          })
+        
+        })
+      });
+    </script>
+
   </body>
 </html>

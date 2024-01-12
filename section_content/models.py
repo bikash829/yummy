@@ -261,6 +261,7 @@ class Reservation(models.Model):
     phone_number = models.CharField(max_length=20)
     date = models.CharField(max_length=100)
     time = models.CharField(max_length=100)
+    guests = models.IntegerField(blank=True)
     message = models.TextField(blank=True)
 
     def __str__(self):

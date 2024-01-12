@@ -26,4 +26,5 @@ urlpatterns = [
     path('', views.index, name='home'), # home page url
     path('account/', include('account.urls')), # account management urls
     path('app-content/', include('app_content.urls')), # app_content urls
+    path('reservation_form/',views.reservation_form,name='reservation_form'),
 ]
