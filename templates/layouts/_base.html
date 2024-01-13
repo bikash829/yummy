@@ -605,24 +605,29 @@
       </section><!-- End Book A Table Section -->
   
       <!-- ======= Gallery Section ======= -->
-      <section id="gallery" class="gallery section-bg">
+      <section id="{{gallery.tab_id}}" class="gallery section-bg">
         <div class="container" data-aos="fade-up">
   
           <div class="section-header">
-            <h2>gallery</h2>
-            <p>Check <span>Our Gallery</span></p>
+            <h2>{{gallery.section_name}}</h2>
+            <p>{{gallery.section_title}}</p>
+            {% comment %} <p>Check <span>Our Gallery</span></p> {% endcomment %}
           </div>
   
           <div class="gallery-slider swiper">
             <div class="swiper-wrapper align-items-center">
-              <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-1.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-1.jpg' %} " class="img-fluid" alt=""></a></div>
-              <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-2.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-2.jpg' %} " class="img-fluid" alt=""></a></div>
+              {% for item in gallery.gallery_images %}
+                <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{item.image}}"><img src="{{item.image}}" class="img-fluid" alt="{{item.note}}"></a></div>
+              
+              {% endfor %}
+              {% comment %} <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-2.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-2.jpg' %} " class="img-fluid" alt=""></a></div>
               <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-3.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-3.jpg' %} " class="img-fluid" alt=""></a></div>
               <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-4.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-4.jpg' %} " class="img-fluid" alt=""></a></div>
               <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-5.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-5.jpg' %} " class="img-fluid" alt=""></a></div>
               <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-6.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-6.jpg' %}" class="img-fluid" alt=""></a></div>
               <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-7.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-7.jpg' %} " class="img-fluid" alt=""></a></div>
-              <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-8.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-8.jpg' %} " class="img-fluid" alt=""></a></div>
+              <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href=" {% static 'assets/img/gallery/gallery-8.jpg' %} "><img src="{% static 'assets/img/gallery/gallery-8.jpg' %} " class="img-fluid" alt=""></a></div> {% endcomment %}
+            
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -826,39 +831,20 @@
 
 
     <script>
-      
-    /*
-        if (toastTrigger) {
-          const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-          toastTrigger.addEventListener('click', () => {
-            toastBootstrap.show()
-          })
-        }
-        */
+
       $(document).ready(function(){
-        /*
-        const toastTrigger = document.getElementById('liveToastBtn')
-        const toastLiveExample = document.getElementById('liveToast')
-        */
-        $('#liveToast').toast(); // Initialize toast
-        
+        $('#liveToast').toast(); // Initialize Toast
 
-        console.log("Hello Doc From Jquery")
 
-        const formReservation = $('#form-reservation')
-
-        formReservation.submit(function(e){
+        // const formReservation = $('#form-reservation')
+        //=============================== Form Reservation Data Submit
+        $('#form-reservation').submit(function(e){
           e.preventDefault()
           console.log("Form Submitted")
-
+          
           const url = $(this).attr('action')
           const method = $(this).attr('method')
           const data = $(this).serialize()
-
-          console.log(url)
-          console.log(method)
-          console.log(data)
-
           
           axios({
             url:url,
@@ -876,11 +862,16 @@
             }
           })
           .catch(function(error){
+            console.log(error)
             $('#toast-body').text(error)
             $('#liveToast').toast('show');
           })
         
         })
+
+
+        //=============================== Form Contact Us Data Submit
+
       });
     </script>
 

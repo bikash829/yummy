@@ -137,7 +137,18 @@ admin.site.register(BookingFormSection)
 """/
     # Gallery
 /"""
-admin.site.register(Gallery)
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('get_section_name','image','note',)
+
+    def get_section_name(self, obj):
+        return obj.section.section_name
+    get_section_name.short_description = 'Section Name'
+    
+
+    # def has_add_permission(self, request):
+    #     return False
+# admin.site.register(Gallery)
         
 """/
     # Contact Us Page Content

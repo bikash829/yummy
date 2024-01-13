@@ -84,15 +84,21 @@ def index(request):
             'section' : Section.objects.get(site_menu__tab_id = 'book-a-table'),
         },
         # 'booking_form_section': BookingFormSection.objects.all(),
+        # Reservation form =================================
+        'reservation_form': ReservationForm(),
 
+        # 'gallery': Gallery.objects.all(),
+        'gallery': {
+            'section' : Section.objects.get(site_menu__tab_id='gallery'),
+            'tab_id' : 'gallery',
+            'gallery_images': Gallery.objects.all(),
+        },
 
-        'gallery': Gallery.objects.all(),
         'contact_us_page_content': ContactUsPageContent.objects.all(),
         'company_information': CompanyInformation.objects.get(pk=1),
 
         # 'reservation_form': ReservationForm(),
-        # Reservation form =================================
-        'reservation_form': ReservationForm(),
+        
     }
 
     # menu = SiteMenu.objects.get(tab_id = 'hero')
